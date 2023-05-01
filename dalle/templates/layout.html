@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dalle</title>
+	<style>
+		body{
+			margin: 0;
+			text-align: center;
+			font-family: sans-serif;
+		}
+		h1{
+			letter-spacing: 5px;
+			color: #3a3a3a;
+		}
+		button[type="submit"] {
+			margin-top: 10px;
+			background-color: #4c56af;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			width: 100px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: 0.3 ease;
+			}
+			img{
+				border-radius: 15px;
+			}
+			button:hover{
+				background-color: #2b3cd3;
+			}
+		form {
+		padding: 20px;
+		border: 1px solid #ccc;
+		background-color: #f2f2f2;
+		margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+    {% block body %}
+	<h1>Image Generator By DALL-E</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">
+			Submit
+		</button>
+	</form>
+		</div>
+	<img src="{% static 'generated_image.png' %}" alt="Your image ">
+    {% endblock %}
+</body>
+</html>
